@@ -1,0 +1,15 @@
+.cust-navbar {
+    background-color: rgba(34, 37, 221, 0.904);
+}
+
+.cust-navbar ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 3rem 15rem;
+}
+
+.cust-navbar li {
+    list-style: none;
+    color: white;
+}
