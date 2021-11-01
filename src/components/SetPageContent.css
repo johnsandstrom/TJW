@@ -1,0 +1,42 @@
+﻿
+.toggle-button-group {
+    display: none;
+}
+
+.toggle-button {
+    background-image: linear-gradient(to bottom right, gray, gray) !important;
+    background-color: transparent !important;
+}
+
+.toggle-button:active {
+    background-image: linear-gradient(to bottom right, green, green) !important;
+}
+
+input {
+    border-width: 0;
+    border-radius: 10px;
+    background-color: #dcdeea;
+    margin: 1px 2px;
+    text-align: left;
+}
+
+.rsvpInfo {
+    /*text-align: center;*/
+    /*display: grid;*/
+    /*vertical-align: middle;*/
+}
+
+.rsvpInfo label {
+    display: inline-block;
+    width: 50%;
+    margin: 12px 12px;
+}
+
+@media (min-width: 768px) {
+
+    .rsvpInfo label {
+        display: inline-block;
+        width: 150px;
+        margin: 12px 12px;
+    }
+}

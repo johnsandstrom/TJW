@@ -1,15 +1,18 @@
 .cust-navbar {
     background-color: rgba(34, 37, 221, 0.904);
-}
-
-.cust-navbar ul {
+    position: relative;
     display: flex;
     justify-content: space-between;
     margin: 0;
     padding: 3rem 15rem;
+    list-style: none;
+    color: white;
+}
+
+.cust-navbar .Navbar-Link {
+    color:white;
+    text-decoration: none;
 }
 
 .cust-navbar li {
-    list-style: none;
-    color: white;
 }
