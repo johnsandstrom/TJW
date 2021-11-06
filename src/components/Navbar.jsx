@@ -1,5 +1,5 @@
 import './Navbar.css'
-import React from "react";
+import React, { useState }from "react";
 import SetPageContent from './SetPageContent';
 import InfoBox from './InfoBox';
 import { NavLink,
@@ -21,9 +21,45 @@ const notfound = () => (
   </div>
 )
 
+const menu = document.querySelector(".cust-navbar");
+const menuItems = document.querySelectorAll(".Navbar-Link");
+const hamburger= document.querySelector(".hamburger-button");
+const closeIcon= document.querySelector(".closeMenu");
+const menuIcon = document.querySelector(".openMenu");
+
+const menuOpen = false;
+
+
+function handleMenu(menuOpen) {
+  menuOpen = !menuOpen;
+  if (menuOpen) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+    console.log("if")
+
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+    console.log("else");
+  }
+}
+
+// hamburger.addEventListener("click", toggleMenu);
+
+// menuItems.forEach( 
+//   function(menuItem) { 
+//     menuItem.addEventListener("click", toggleMenu);
+//   }
+// )
 const CustNavbar = () => (
         <div className="cust-navbar">
-              <NavLink className="Navbar-Link" to="/">Hem             </NavLink>
+              <button class="hamburger-button" onClick={menuOpen}> 
+                <i className="fas fa-bars hamburger openMenu"></i>
+                <i className="fas fa-bars hamburger closeMenu"></i>
+              </button>
+              <NavLink className="Navbar-Link" to="/">HEM             </NavLink>
               <NavLink className="Navbar-Link" to="/OSA">OSA          </NavLink>
               <NavLink className="Navbar-Link" to="/SOVPLATS">SOVPLATS</NavLink>
               <NavLink className="Navbar-Link" to="/TAL">TAL          </NavLink>

@@ -20,6 +20,12 @@ input {
     text-align: left;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
 .rsvpInfo {
     /*text-align: center;*/
     /*display: grid;*/
@@ -40,3 +46,4 @@ input {
         margin: 12px 12px;
     }
 }
+

@@ -1,9 +1,6 @@
 ﻿import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
-// import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButton from 'react-toggle-button'
-
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import './SetPageContent.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -11,8 +8,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function SetPageContent(props) {
 
+    var guestName;
+    var wantSleepingSpot = false;
+
     const [willAttend, setWillAttend] = useState(true);
     const [willStay, setWillStay] = useState(true);
+
+
 
     function handleAttendance() {
         setWillAttend(!willAttend)
@@ -22,6 +24,18 @@ function SetPageContent(props) {
     function handleWillStay() {
         setWillStay(!willStay);
         console.log(willStay);
+    }
+
+
+    function updateAttendance() {
+        guestName = document.getElementById('rsvpName').value;
+        
+        if ( willAttend && willStay) {
+            wantSleepingSpot = true;
+        }
+        console.log(guestName);
+        console.log(wantSleepingSpot);
+
     }
 
     if (props.id === "home") {
@@ -46,16 +60,16 @@ function SetPageContent(props) {
     }
     else if (props.id === "rsvp") {
         return (<div>
-            <p><br />Jag kommer: {"  "}
-                
+                <p><br />Jag kommer: {"  "}
+                <div className="button-container">
                 <ToggleButton
                     className="toggle-button"
                     activeLabel={"Ja"}
                     inactiveLabel={"Nej"}
                     value={ willAttend || false }
                     onToggle={handleAttendance} value={willAttend}
-                />
-
+                    />
+                </div>
             </p>
             <div className="rsvpInfo">
                 {willAttend ?
@@ -65,18 +79,20 @@ function SetPageContent(props) {
                         <label for="allergies"> Allergier</label>
                         <input type="text" id="allergies" /><br />
                         <br /><label>Vill sova kvar</label><br />
-                        <ToggleButton
-                            className="toggle-button"
-                            activeLabel={"Ja"}
-                            inactiveLabel={"Nej"}
-                            value={ willStay || false }
-                            onToggle={handleWillStay} value={willStay}
-                        />
-
-                    </p> :
+                        <div className="button-container">
+                            <ToggleButton
+                                className="toggle-button"
+                                activeLabel={"Ja"}
+                                inactiveLabel={"Nej"}
+                                value={ willStay || false }
+                                onToggle={handleWillStay} value={willStay}
+                            />
+                        </div>
+                    </p>
+                    :
                     <p> <label for="rsvpName">Namn</label>
                     <input type="text" id="rsvpName" /><br /></p>}
-                    <Button>Skicka</Button>
+                    <Button onClick={updateAttendance}>Skicka</Button>
                 <br /><br />
             </div>
         </div>);
